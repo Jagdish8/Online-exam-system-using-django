@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','onlineexamsyst.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','pure-mountain-07734.herokuapp.com']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
