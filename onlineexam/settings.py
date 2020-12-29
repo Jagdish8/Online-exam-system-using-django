@@ -30,7 +30,6 @@ SECRET_KEY = 'r%up=rux$^#(75_&(6kmyo7)3#m(uc9yp((d1um5lrg1r8@m2z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
