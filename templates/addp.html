@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+{% for message in messages %}
+	<p id="messages">{{message}}</p>
+{% endfor %}
+<br>
+    <a href="{% url 'maint' %}">
+	    <button type="submit" value="ADD PAPER">HOME PAGE</button>
+    </a>
+    <a href="{% url 'logout' %}">
+		<button type="submit" value="LOGOUT" href>LOGOUT</button>
+    </a>
+</div>
+<div class="container">
+<form id="subform" action="/addpaper" method="post">
+    {% csrf_token %}
+
+    <div class="field" tabindex="1">
+        <label for="SUBJECT NAME">
+            <i class="SUBJECT NAME"></i>SUBJECT NAME:
+        </label>
+        <input name="SUBJECT NAME" type="text" placeholder="e.g. MATHS" required>
+    </div>
+    <br><br>
+    <div class="field" tabindex="2">
+        <label for="Q1">
+            <i class="Q1"></i>Question 1. :
+        </label>
+        <textarea id="Q1" name="Q1" rows="4" cols="50"></textarea>
+        <label for="Q1OP1">
+            <i class="Q1OP1"></i>Option 1:
+        </label>
+        <input name="Q1OP1" type="text" required>
+        <label for="Q1OP2">
+            <i class="Q1OP2"></i>Option 2:
+        </label>
+        <input name="Q1OP2" type="text" required>
+        <label for="Q1OP3">
+            <i class="Q1OP3"></i>Option 3:
+        </label>
+        <input name="Q1OP3" type="text" required>
+        <label for="Q1OP4">
+            <i class="Q1OP4"></i>Option 4:
+        </label>
+        <input name="Q1OP4" type="text" required>    
+        <label for="Q1 CORRECT OPTION">
+            <i class="Q1 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q1 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br><br>
+
+    <div class="field" tabindex="3">
+        <label for="Q2">
+            <i class="Q2"></i>Question 2. :
+        </label>
+        <textarea id="Q2" name="Q2" rows="4" cols="50"></textarea>
+        <label for="Q2OP1">
+            <i class="Q2OP1"></i>Option 1:
+        </label>
+        <input name="Q2OP1" type="text" required>
+        <label for="Q2OP2">
+            <i class="Q2OP2"></i>Option 2:
+        </label>
+        <input name="Q2OP2" type="text" required>
+        <label for="Q2OP3">
+            <i class="Q2OP3"></i>Option 3:
+        </label>
+        <input name="Q2OP3" type="text" required>
+        <label for="Q2OP4">
+            <i class="Q2OP4"></i>Option 4:
+        </label>
+        <input name="Q2OP4" type="text" required>   
+        <label for="Q2 CORRECT OPTION">
+            <i class="Q2 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q2 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required> 
+    </div>
+    <br><br>
+    <div class="field" tabindex="4">
+        <label for="Q3">
+            <i class="Q3"></i>Question 3. :
+        </label>
+        <textarea id="Q3" name="Q3" rows="4" cols="50"></textarea>
+        <label for="Q3OP1">
+            <i class="Q3OP1"></i>Option 1:
+        </label>
+        <input name="Q3OP1" type="text" required>
+        <label for="Q3OP2">
+            <i class="Q3OP2"></i>Option 2:
+        </label>
+        <input name="Q3OP2" type="text" required>
+        <label for="Q3OP3">
+            <i class="Q3OP3"></i>Option 3:
+        </label>
+        <input name="Q3OP3" type="text" required>
+        <label for="Q3OP4">
+            <i class="Q3OP4"></i>Option 4:
+        </label>
+        <input name="Q3OP4" type="text" required>  
+        <label for="Q3 CORRECT OPTION">
+            <i class="Q3 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q3 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>  
+    </div>
+    <br><br>
+    <div class="field" tabindex="5">
+        <label for="Q4">
+            <i class="Q4"></i>Question 4. :
+        </label>
+        <textarea id="Q4" name="Q4" rows="4" cols="50"></textarea>
+        <label for="Q4OP1">
+            <i class="Q4OP1"></i>Option 1:
+        </label>
+        <input name="Q4OP1" type="text" required>
+        <label for="Q4OP2">
+            <i class="Q4OP2"></i>Option 2:
+        </label>
+        <input name="Q4OP2" type="text" required>
+        <label for="Q4OP3">
+            <i class="Q4OP3"></i>Option 3:
+        </label>
+        <input name="Q4OP3" type="text" required>
+        <label for="Q4OP4">
+            <i class="Q4OP4"></i>Option 4:
+        </label>
+        <input name="Q4OP4" type="text" required>
+        <label for="Q4 CORRECT OPTION">
+            <i class="Q4 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q4 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required> 
+    </div>
+    <br><br>
+    <div class="field" tabindex="6">
+        <label for="Q5">
+            <i class="Q5"></i>Question 5. :
+        </label>
+        <textarea id="Q5" name="Q5" rows="4" cols="50"></textarea>
+        <label for="Q5OP1">
+            <i class="Q5OP1"></i>Option 1:
+        </label>
+        <input name="Q5OP1" type="text" required>
+        <label for="Q5OP2">
+            <i class="Q5OP2"></i>Option 2:
+        </label>
+        <input name="Q5OP2" type="text" required>
+        <label for="Q5OP3">
+            <i class="Q5OP3"></i>Option 3:
+        </label>
+        <input name="Q5OP3" type="text" required>
+        <label for="Q5OP4">
+            <i class="Q5OP4"></i>Option 4:
+        </label>
+        <input name="Q5OP4" type="text" required>
+        <label for="Q5 CORRECT OPTION">
+            <i class="Q5 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q5 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>    
+    </div>
+    <br><br>
+    <div class="field" tabindex="7">
+        <label for="Q6">
+            <i class="Q6"></i>Question 6. :
+        </label>
+        <textarea id="Q6" name="Q6" rows="4" cols="50"></textarea>
+        <label for="Q6OP1">
+            <i class="Q6OP1"></i>Option 1:
+        </label>
+        <input name="Q6OP1" type="text" required>
+        <label for="Q6OP2">
+            <i class="Q6OP2"></i>Option 2:
+        </label>
+        <input name="Q6OP2" type="text" required>
+        <label for="Q6OP3">
+            <i class="Q6OP3"></i>Option 3:
+        </label>
+        <input name="Q6OP3" type="text" required>
+        <label for="Q6OP4">
+            <i class="Q6OP4"></i>Option 4:
+        </label>
+        <input name="Q6OP4" type="text" required>    
+        <label for="Q6 CORRECT OPTION">
+            <i class="Q6 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q6 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br><br>
+    <div class="field" tabindex="8">
+        <label for="Q7">
+            <i class="Q7"></i>Question 7. :
+        </label>
+        <textarea id="Q7" name="Q7" rows="4" cols="50"></textarea>
+        <label for="Q7OP1">
+            <i class="Q7OP1"></i>Option 1:
+        </label>
+        <input name="Q7OP1" type="text" required>
+        <label for="Q7OP2">
+            <i class="Q7OP2"></i>Option 2:
+        </label>
+        <input name="Q7OP2" type="text" required>
+        <label for="Q7OP3">
+            <i class="Q7OP3"></i>Option 3:
+        </label>
+        <input name="Q7OP3" type="text" required>
+        <label for="Q7OP4">
+            <i class="Q7OP4"></i>Option 4:
+        </label>
+        <input name="Q7OP4" type="text" required>
+        <label for="Q7 CORRECT OPTION">
+            <i class="Q7 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q7 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br><br>
+    <div class="field" tabindex="9">
+        <label for="Q8">
+            <i class="Q8"></i>Question 8. :
+        </label>
+        <textarea id="Q8" name="Q8" rows="4" cols="50"></textarea>
+        <label for="Q8OP1">
+            <i class="Q8OP1"></i>Option 1:
+        </label>
+        <input name="Q8OP1" type="text" required>
+        <label for="Q8OP2">
+            <i class="Q8OP2"></i>Option 2:
+        </label>
+        <input name="Q8OP2" type="text" required>
+        <label for="Q8OP3">
+            <i class="Q8OP3"></i>Option 3:
+        </label>
+        <input name="Q8OP3" type="text" required>
+        <label for="Q8OP4">
+            <i class="Q8OP4"></i>Option 4:
+        </label>
+        <input name="Q8OP4" type="text" required>
+        <label for="Q8 CORRECT OPTION">
+            <i class="Q8 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q8 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br><br>
+    <div class="field" tabindex="10">
+        <label for="Q9">
+            <i class="Q9"></i>Question 9. :
+        </label>
+        <textarea id="Q9" name="Q9" rows="4" cols="50"></textarea>
+        <label for="Q9OP1">
+            <i class="Q9OP1"></i>Option 1:
+        </label>
+        <input name="Q9OP1" type="text" required>
+        <label for="Q9OP2">
+            <i class="Q9OP2"></i>Option 2:
+        </label>
+        <input name="Q9OP2" type="text" required>
+        <label for="Q9OP3">
+            <i class="Q9OP3"></i>Option 3:
+        </label>
+        <input name="Q9OP3" type="text" required>
+        <label for="Q9OP4">
+            <i class="Q9OP4"></i>Option 4:
+        </label>
+        <input name="Q9OP4" type="text" required>    
+        <label for="Q9 CORRECT OPTION">
+            <i class="Q9 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q9 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br><br>
+    <div class="field" tabindex=11>
+        <label for="Q10">
+            <i class="Q10"></i>Question 10. :
+        </label>
+        <textarea id="Q10" name="Q10" rows="4" cols="50"></textarea>
+        <label for="Q10OP1">
+            <i class="Q10OP1"></i>Option 1:
+        </label>
+        <input name="Q10OP1" type="text" required>
+        <label for="Q10OP2">
+            <i class="Q10OP2"></i>Option 2:
+        </label>
+        <input name="Q10OP2" type="text" required>
+        <label for="Q10OP3">
+            <i class="Q10OP3"></i>Option 3:
+        </label>
+        <input name="Q10OP3" type="text" required>
+        <label for="Q10OP4">
+            <i class="Q10OP4"></i>Option 4:
+        </label>
+        <input name="Q10OP4" type="text" required>    
+        <label for="Q10 CORRECT OPTION">
+            <i class="Q10 CORRECT OPTION"></i>CORRECT OPTION:
+        </label>
+        <input name="Q10 CORRECT OPTION" type="number" min=1 max=4 placeholder="e.g. 1" required>
+    </div>
+    <br>
+   
+    <button type="submit" value="Submit">Submit</button>
+</form>
+</div>
+</body>
+</html>

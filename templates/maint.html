@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<br><br><br><br>
+	<header>Welcome! This is Teachers Panel,You can set new Question papers for the students! </header>
+	<br><br><br><br><br><br>
+	<div class="container">
+			{% csrf_token %}
+			<div class="field">
+			<p>Already Setted question papers:</p>
+			<ul>
+			{% for i in b%}
+				<li>{{i}}</li>
+			{% endfor %}
+			</ul>
+		
+		<a href="{% url 'addpaper' %}">
+		<button type="submit" value="ADD PAPER">ADD PAPER</button>
+		</a>
+	
+		<a href="{% url 'logout' %}">
+		<button type="submit" value="LOGOUT" >LOGOUT</button>
+		</a>
+		
+	</div>
+</body>
+</html>

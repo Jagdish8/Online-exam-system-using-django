@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<br><br><br><br>
+    <header> ONLINE EXAM SYSTEM </header>
+	<div class="container">
+
+        <form id="subform" action="" method="post">
+            {% csrf_token %}
+			<br><br><br><br><br>
+			<div class="field" tabindex="1">
+				<label for="name">
+					<i class="name"></i>Name:
+				</label>
+				<input name="name" type="text" placeholder="e.g. john doe" required>
+			</div>
+
+			<div class="field" tabindex="2">
+				<label for="psww">
+					<i class="psww"></i>Password:
+				</label>
+				<input name="psww" type="password" required>
+			</div>
+
+			
+
+			<div class="field" tabindex="3">
+				<label for="torst">
+					<i class="torst"></i>You are:
+				</label><br>
+				<select name="torst" id="torst" required >
+					<option disabled selected value> -- select an option -- </option>
+					<option value="Student">Student</option>
+					<option value="Teacher">Teacher</option>
+				  </select>
+			</div>
+			<br>
+			
+			<button type="submit" value="Submit">LOGIN</button>
+
+        </form>
+        {% for message in messages %}
+					<p id="messages">{{message}}</p>
+		{% endfor %}
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+    <script type='text/javascript' > 
+        var count = 0; 
+    </script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Q7. {{l7.0}}</h3>
+                        </div>  
+                        <div class="modal-body">
+                        <div class="col-xs-3 5"> </div>
+                        <div class="quiz" id="quiz" data-toggle="buttons">
+                        <select id='select_1' style='display:none'></select>
+                        <label class="element-animation1 btn btn-lg btn-danger btn-block">
+                        <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                        <input type="radio" id="1" name="q_answer" value="1" onclick="checkans(this)"> {{l7.1}}</label> 
+                        <label class="element-animation2 btn btn-lg btn-danger btn-block">
+                        <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                        <input type="radio" id="2" name="q_answer" value="2" onclick="checkans(this)">{{l7.2}}</label> 
+                        <label class="element-animation3 btn btn-lg btn-danger btn-block">
+                        <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> 
+                        <input type="radio" id="3" name="q_answer" value="3" onclick="checkans(this)">{{l7.3}}</label> 
+                        <label class="element-animation4 btn btn-lg btn-danger btn-block">
+                        <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> 
+                        <input type="radio" id="4" name="q_answer" value="4" onclick="checkans(this)"> {{l7.4}} </label> </div>
+                        <br>
+                        <p id="demo"></p>
+                        <a href="{% url 'question8' %}">
+		                    <button type="submit" id="next" value="next" disabled="disabled">next</button>
+		                </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        var count = sessionStorage.getItem("Count");
+        var d = sessionStorage.getItem("D")
+        count=Number(count)
+        console.log(count)
+        function checkans(s1) {
+            var ans={{l7.5}};
+            var rightans = document.getElementById(ans).checked;
+            if(rightans){
+                document.getElementById("demo").innerHTML = "Correct Answer!";
+                count=count+1;
+            }
+            else{
+                document.getElementById("demo").innerHTML = "Incorrect Answer! The correct answer is option "+ans+" !";
+            }
+            sessionStorage.setItem("Count", count);
+            sessionStorage.setItem("D", d);
+            document.getElementById('next').removeAttribute('disabled');
+            document.getElementById(1).disabled=true;
+            document.getElementById(2).disabled=true;
+            document.getElementById(3).disabled=true;
+            document.getElementById(4).disabled=true;
+    }
+    </script>
+</body>
+</html>

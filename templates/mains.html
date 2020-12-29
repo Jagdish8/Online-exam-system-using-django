@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<br><br><br><br>
+	<header> WELCOME! This is a student portal, Students can take tests and have immediate answers after each question! </header>
+	
+	<div class="container">
+		<a href="{% url 'logout' %}">
+			<button type="submit" value="LOGOUT" href>LOGOUT</button>
+		</a>
+	</div>
+	<div class="container">
+		<form id="subform" action="/taketest" method="post">
+			{% csrf_token %}
+			<br><br><br>
+			<div class="field">
+				<label for="test">
+					<i class="test"></i>Select the test you want to take:
+				</label><br>
+				<select name="test" id="test" required >
+				<option disabled selected value> -- select an option -- </option>
+				{% for i in b%}
+					<option value={{i}}>{{i}}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<br>
+			<button type="submit" value="Submit">Take Test</button>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<br>
+    <header>
+    <b>RESULTS: </b>
+    </header>
+    <br><br><br><br>
+    <div class="container">
+    <form>
+     <header>Score:<b><p id="demo"></p></b>/<b>10</b></header>
+     <header><p>Time Taken:</p><b><p id="demointime"> </p></b><p> Minutes</p></p></header>
+     <header>Subject: <b><p>{{sub}}</p></b></header>
+     </form>
+    </div>
+	<div class="container">
+            {% csrf_token %}
+
+			
+			
+		<a href="{% url 'mains' %}">
+		<button type="submit" value="HOME">HOME</button>
+		</a>
+		<a href="{% url 'logout' %}">
+		<button type="submit" value="LOGOUT" href>LOGOUT</button>
+		</a>
+        <b><p>NOTE: Refresh before you start a new test</p><b>
+    </div>
+    <script>
+        var newd = new Date();
+        var count = sessionStorage.getItem("Count");
+        var d = sessionStorage.getItem("Diff")
+        console.log(d)
+        count=Number(count)
+        console.log(count)
+        document.getElementById("demo").innerHTML = count;
+        document.getElementById("demointime").innerHTML = d;
+    </script>
+</body>
+</html>
