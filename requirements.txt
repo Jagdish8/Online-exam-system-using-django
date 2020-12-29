@@ -53,7 +53,7 @@ sqlparse==0.4.1
 
 systemd-python==234
 
-ufw==0.36
+
 unattended-upgrades==0.1
 urllib3==1.22
 whitenoise==5.2.0
